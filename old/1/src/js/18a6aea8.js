@@ -40,7 +40,7 @@ $(document).ready(async () => {
         $('#loginwithDiscord').css('left', '71px');
         $('#loginwithDiscord')[0].innerText = 'Continue';
         $('#loginwithDiscord').click(() => {
-            window.location = 'https://www.webfort.cf/dashboard/';
+            window.location = '/dashboard';
         });
         $('#data').animate({
             top: '0px'
