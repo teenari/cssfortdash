@@ -647,7 +647,7 @@ class Menu {
             $('#SaveAvatar').click(async () => {
                 if(!selectedItem) return;
                 await this.hideMenu(menu);
-                await this.system.changeCosmeticItem('emote', selectedItem.id);
+                await this.system.changeCosmeticItem('emote', selectedItem.id, true);
             });
             this.addCloseButton(menu, 'MENU~cosmeticMenu~close');
         });
@@ -674,7 +674,7 @@ class Menu {
         }
         const buttons = document.createElement('div');
         document.getElementById('fnItems').appendChild(buttons);
-        buttons.outerHTML = '<div class="smallButton"><div id="changeLevel">Change Level</div><div>0</div></div>';
+        buttons.outerHTML = '<div class="smallButton"><div id="changeLevel">Change Level</div><div>0</div></div><div class="smallButton"><div id="emote" style="left: 32%;">Emote</div></div>';
         await new Promise((resolve) => setTimeout(resolve, 1));
         $('#changeLevel').click(async () => {
             const menu = this.createMenu('CHANGELEVEL');
@@ -686,6 +686,7 @@ class Menu {
                 }
             });
         });
+        $('#emote').click(async () => await system.menu.showEmoteMenu());
         return this;
     }
 
@@ -988,11 +989,11 @@ class System {
         });
     }
 
-    async changeCosmeticItem(cosmeticType, id) {
+    async changeCosmeticItem(cosmeticType, id, setItem) {
         await this.sendRequest(`api/account/party/me/meta?array=["${id}"]&function=set${cosmeticType.toLowerCase().charAt(0).toUpperCase() + cosmeticType.toLowerCase().slice(1)}`, {
             method: "PUT"
         });
-        this.items[cosmeticType.toLowerCase()] = this.cosmetics.sorted[cosmeticType.toLowerCase()].find(cosmetic => cosmetic.id === id);
+        if(!setItem) this.items[cosmeticType.toLowerCase()] = this.cosmetics.sorted[cosmeticType.toLowerCase()].find(cosmetic => cosmetic.id === id);
         return this;
     }
 
