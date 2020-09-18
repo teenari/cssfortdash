@@ -1319,10 +1319,18 @@ $(document).ready(async () => {
     $('.loading-content')[0].innerHTML = '<div class="accounts-container"><div class="accounts"></div></div>';
 
     const cids = [
-        "CID_438_Athena_Commando_M_WinterGhoulEclipse",
-        "CID_439_Athena_Commando_F_SkullBriteEclipse",
-        "CID_437_Athena_Commando_F_AztecEclipse",
-        "CID_159_Athena_Commando_M_GumshoeDark"
+        'CID_102_Athena_Commando_M_Raven',
+        'CID_105_Athena_Commando_F_SpaceBlack',
+        'CID_337_Athena_Commando_F_Celestial',
+        'CID_175_Athena_Commando_M_Celestial',
+        'ITEM/CID_413_Athena_Commando_M_StreetDemon',
+        'CID_511_Athena_Commando_M_CubePaintWildCard',
+        'CID_512_Athena_Commando_F_CubePaintRedKnight',
+        'CID_513_Athena_Commando_M_CubePaintJonesy',
+        'CID_850_Athena_Commando_F_SkullBriteCube',
+        'CID_849_Athena_Commando_M_DarkEaglePurple',
+        'CID_737_Athena_Commando_F_DonutPlate',
+        'CID_648_Athena_Commando_F_MsAlpine'
     ];
     let displayName;
 
@@ -1334,6 +1342,9 @@ $(document).ready(async () => {
             displayName = account;
         });
     };
+    const div = document.createElement('div');
+    document.getElementsByClassName('accounts')[0].appendChild(div);
+    div.outerHTML = '<div id="CREATENEWACCOUNT" class="account"><div><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div>CREATE</div></div>';
     await new Promise((resolve) => {
         const inv = setInterval(() => {
             if(displayName) {
