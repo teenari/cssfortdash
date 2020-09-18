@@ -941,7 +941,15 @@ class System {
         await this.createSession(this.displayName);
         this.menu.setLoadingText('Creating Event Source');
         this.source = await this.makeSource();
-        window.onbeforeunload = this.logout;
+        window.onbeforeunload = async () => {
+            await fetch(`https://webfort.herokuapp.com/api/account`, {
+                credentials: 'include',
+                headers: {
+                    'Access-Control-Allow-Origin': "https://teenari.github.io"
+                },
+                method: "DELETE"
+            });
+        };
         await new Promise((resolve) => {
             this.source.onmessage = (data) => {
                 const json = JSON.parse(data.data);
