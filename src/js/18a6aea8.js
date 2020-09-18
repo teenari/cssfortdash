@@ -1322,14 +1322,6 @@ $(document).ready(async () => {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
         div.outerHTML = `<div id="${account}" class="account"><div><img src="https://fortnite-api.com/images/cosmetics/br/${cids[cids.length * Math.random() | 0]}/icon.png"></div><div>${account}</div></div>`;
-        $(`#${account}`).hover(
-            () => {
-                $(`#${account}`).animate({borderRadius: 3}, 100);
-            },
-            () => {
-                $(`#${account}`).animate({borderRadius: 11}, 100);
-            }
-        );
         $(`#${account}`).click(() => {
             displayName = account;
         });
