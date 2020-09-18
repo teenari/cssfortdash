@@ -1308,7 +1308,7 @@ $(document).ready(async () => {
     await new Promise((resolve) => $('.notice-understand').click(resolve));
     $('.notice-understand').fadeOut(300);
     await new Promise((resolve) => setTimeout(resolve, 300));
-    $('.loading-content')[0].innerHTML = '<div class="accounts-container"><div>What option do you want to use</div><div class="accounts"></div></div>';
+    $('.loading-content')[0].innerHTML = '<div class="accounts-container"><div class="accounts"></div></div>';
 
     const cids = [
         "CID_438_Athena_Commando_M_WinterGhoulEclipse",
