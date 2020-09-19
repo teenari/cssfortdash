@@ -1349,11 +1349,11 @@ $(document).ready(async () => {
             });
             $(`#${account}`).hover(
                 () => $(`#${account}`).animate({
-                    "boxShadowBlur": '29px'
-                }, 200),
+                    "boxShadow": `0px 0px 29px ${adjust(color, -25)}`
+                }),
                 () => $(`#${account}`).animate({
-                    "boxShadowBlur": '5px'
-                }, 200)
+                    "boxShadow": ``
+                })
             );
         });
     };
