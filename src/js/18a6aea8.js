@@ -1344,18 +1344,15 @@ $(document).ready(async () => {
         sadd.hidden = true;
         document.body.appendChild(sadd);
         $(`[src="${src}"]`).imgcolr(function (img, color) {
+            const twofive = adjust(color, -25);
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${adjust(color, -25)};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${twofive};">${account}</div></div>`;
             $(`#${account}`).click(() => {
                 displayName = account;
             });
             $(`#${account}`).hover(
-                () => $(`#${account}`).animate({
-                    "boxShadow": `0px 0px 29px ${adjust(color, -25)}`
-                }, 20),
-                () => $(`#${account}`).animate({
-                    "boxShadow": ``
-                }, 20)
+                () => $('#WBDPP').css({'boxShadow': `${twofive} 0px 0px 29px`}),
+                () => $('#WBDPP').css({'boxShadow': `none`})
             );
         });
         used.push(cid);
