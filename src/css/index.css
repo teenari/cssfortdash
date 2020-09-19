@@ -177,12 +177,10 @@ html {
     border-radius: 5px;
     margin: 8px;
     cursor: pointer;
-    box-shadow: 0px 0px 7px #382C52;
     transition: 0.2s;
 }
 
 .account:hover {
-    box-shadow: 0px 0px 29px #382C52;
 }
 
 .account > div:nth-child(1) {

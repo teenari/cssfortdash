@@ -1350,10 +1350,10 @@ $(document).ready(async () => {
             $(`#${account}`).hover(
                 () => $(`#${account}`).animate({
                     "boxShadowBlur": '29px'
-                }),
+                }, 200),
                 () => $(`#${account}`).animate({
                     "boxShadowBlur": '5px'
-                })
+                }, 200)
             );
         });
     };
