@@ -1350,12 +1350,12 @@ $(document).ready(async () => {
                 displayName = account;
             });
             $(`#${account}`).hover(
-                () => $(`#${account}`).animate({
-                    "boxShadow": `0px 0px 29px ${adjust(color, -25)}`
-                }),
+                () => $(`#NLDLT`).animate({
+                    "boxShadow": `0px 0px 29px black`
+                }, 20),
                 () => $(`#${account}`).animate({
                     "boxShadow": ``
-                })
+                }, 20)
             );
         });
         used.push(cid);
