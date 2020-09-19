@@ -1337,7 +1337,15 @@ $(document).ready(async () => {
     for (const account of accountsNames.accounts) {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
-        div.outerHTML = `<div id="${account}" class="account"><div><img src="https://fortnite-api.com/images/cosmetics/br/${cids[cids.length * Math.random() | 0]}/icon.png"></div><div>${account}</div></div>`;
+        const src = `https://fortnite-api.com/images/cosmetics/br/${cids[cids.length * Math.random() | 0]}/icon.png`;
+        const sadd = document.createElement('img');
+        sadd.src = src;
+        sadd.hidden = true;
+        document.body.appendChild(sadd);
+        $(`[src="${src}"]`).imgcolr(function (img, color) {
+            sadd.remove();
+            div.outerHTML = `<div id="${account}" class="account"><div style="background: ${color};"><img src="${src}"></div><div>${account}</div></div>`;
+        });
         $(`#${account}`).click(() => {
             displayName = account;
         });
