@@ -1330,12 +1330,14 @@ $(document).ready(async () => {
         'CID_737_Athena_Commando_F_DonutPlate',
         'CID_648_Athena_Commando_F_MsAlpine'
     ];
+    const used = [];
     let displayName;
 
     for (const account of accountsNames.accounts) {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
-        const src = `https://fortnite-api.com/images/cosmetics/br/${cids[cids.length * Math.random() | 0]}/icon.png`;
+        const cid = cids.filter(e => !used.includes(e))[cids.filter(e => !used.includes(e)).length * Math.random() | 0];
+        const src = `https://fortnite-api.com/images/cosmetics/br/${cid}/icon.png`;
         const adjust = (color, amount) => '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
         const sadd = document.createElement('img');
         sadd.src = src;
@@ -1356,6 +1358,7 @@ $(document).ready(async () => {
                 })
             );
         });
+        used.push(cid);
     };
     const div = document.createElement('div');
     document.getElementsByClassName('accounts')[0].appendChild(div);
