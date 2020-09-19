@@ -1343,7 +1343,7 @@ $(document).ready(async () => {
         document.body.appendChild(sadd);
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; box-shadow: ${adjust(color, -30)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${adjust(color, -30)};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; box-shadow: 0px 0px 7px ${adjust(color, -30)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${adjust(color, -30)};">${account}</div></div>`;
         });
         $(`#${account}`).click(() => {
             displayName = account;
