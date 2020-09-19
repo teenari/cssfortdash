@@ -1351,8 +1351,8 @@ $(document).ready(async () => {
                 displayName = account;
             });
             $(`#${account}`).hover(
-                () => $('#WBDPP').css({'boxShadow': `${twofive} 0px 0px 29px`}),
-                () => $('#WBDPP').css({'boxShadow': `none`})
+                () => $(`#${account}`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
+                () => $(`#${account}`).css({'boxShadow': `none`})
             );
         });
         used.push(cid);
