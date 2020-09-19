@@ -1350,7 +1350,7 @@ $(document).ready(async () => {
                 displayName = account;
             });
             $(`#${account}`).hover(
-                () => $(`#NLDLT`).animate({
+                () => $(`#${account}`).animate({
                     "boxShadow": `0px 0px 29px black`
                 }, 20),
                 () => $(`#${account}`).animate({
