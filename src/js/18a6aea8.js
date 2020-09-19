@@ -1348,6 +1348,14 @@ $(document).ready(async () => {
         $(`#${account}`).click(() => {
             displayName = account;
         });
+        $(`#${account}`).hover(
+            () => $(`#${account}`).animate({
+                "boxShadowBlur": '29px'
+            }),
+            () => $(`#${account}`).animate({
+                "boxShadowBlur": '5px'
+            })
+        );
     };
     const div = document.createElement('div');
     document.getElementsByClassName('accounts')[0].appendChild(div);
