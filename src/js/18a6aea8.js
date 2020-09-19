@@ -1338,13 +1338,14 @@ $(document).ready(async () => {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
         const src = `https://fortnite-api.com/images/cosmetics/br/${cids[cids.length * Math.random() | 0]}/icon.png`;
+        const adjust = (color, amount) => '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
         const sadd = document.createElement('img');
         sadd.src = src;
         sadd.hidden = true;
         document.body.appendChild(sadd);
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account"><div style="background: ${color};"><img src="${src}"></div><div>${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)};"><div style="background: ${color};"><img src="${src}"></div><div style="background: ${adjust(color, -30)};">${account}</div></div>`;
         });
         $(`#${account}`).click(() => {
             displayName = account;
