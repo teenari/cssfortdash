@@ -1321,8 +1321,6 @@ $(document).ready(async () => {
     const cids = [
         'CID_102_Athena_Commando_M_Raven',
         'CID_105_Athena_Commando_F_SpaceBlack',
-        'CID_337_Athena_Commando_F_Celestial',
-        'CID_175_Athena_Commando_M_Celestial',
         'ITEM/CID_413_Athena_Commando_M_StreetDemon',
         'CID_511_Athena_Commando_M_CubePaintWildCard',
         'CID_512_Athena_Commando_F_CubePaintRedKnight',
@@ -1345,7 +1343,7 @@ $(document).ready(async () => {
         document.body.appendChild(sadd);
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)};"><div style="background: ${color};"><img src="${src}"></div><div style="background: ${adjust(color, -30)};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; box-shadow: ${adjust(color, -30)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${adjust(color, -30)};">${account}</div></div>`;
         });
         $(`#${account}`).click(() => {
             displayName = account;
