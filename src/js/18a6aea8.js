@@ -1351,7 +1351,7 @@ $(document).ready(async () => {
             });
             $(`#${account}`).hover(
                 () => $(`#${account}`).animate({
-                    "boxShadow": `0px 0px 29px black`
+                    "boxShadow": `0px 0px 29px ${adjust(color, -25)}`
                 }, 20),
                 () => $(`#${account}`).animate({
                     "boxShadow": ``
