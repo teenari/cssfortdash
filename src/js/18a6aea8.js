@@ -1344,18 +1344,18 @@ $(document).ready(async () => {
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             sadd.remove();
             div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; box-shadow: 0px 0px 7px ${adjust(color, -25)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${adjust(color, -25)};">${account}</div></div>`;
+            $(`#${account}`).click(() => {
+                displayName = account;
+            });
+            $(`#${account}`).hover(
+                () => $(`#${account}`).animate({
+                    "boxShadowBlur": '29px'
+                }),
+                () => $(`#${account}`).animate({
+                    "boxShadowBlur": '5px'
+                })
+            );
         });
-        $(`#${account}`).click(() => {
-            displayName = account;
-        });
-        $(`#${account}`).hover(
-            () => $(`#${account}`).animate({
-                "boxShadowBlur": '29px'
-            }),
-            () => $(`#${account}`).animate({
-                "boxShadowBlur": '5px'
-            })
-        );
     };
     const div = document.createElement('div');
     document.getElementsByClassName('accounts')[0].appendChild(div);
