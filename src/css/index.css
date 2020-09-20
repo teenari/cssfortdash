@@ -214,6 +214,41 @@ html {
     border-radius: 13px;
 }
 
+.menu-create > div {
+    position: relative;
+    text-align: center;
+    width: 114px;
+    margin: 63px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.menu-create {
+    position: relative;
+    height: 410px;
+    text-overflow: clip;
+    left: 2vh;
+    top: -2vh;
+    transition: 0.1s;
+    white-space: nowrap;
+    font-size: 26px;
+    background: #382C52;
+    width: 91vh;
+    border-radius: 5px;
+    color: #5B47AB;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    text-align: center;
+}
+
+.showcaseAccount {
+    position: relative;
+    left: -6vh;
+    top: 11vh;
+    cursor: auto;
+}
+
 .members-container {
     position: absolute;
     width: 100%;
