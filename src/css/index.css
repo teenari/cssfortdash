@@ -178,6 +178,7 @@ html {
     margin: 8px;
     cursor: pointer;
     transition: 0.2s;
+    border-bottom: 3px solid;
 }
 
 .account:hover {

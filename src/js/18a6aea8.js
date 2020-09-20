@@ -1346,7 +1346,7 @@ $(document).ready(async () => {
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             const twofive = adjust(color, -25);
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${twofive};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; border-bottom: 6px solid ${color};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${twofive};">${account}</div></div>`;
             $(`#${account}`).click(() => {
                 displayName = account;
             });
