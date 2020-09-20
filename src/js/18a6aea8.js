@@ -661,16 +661,6 @@ class Menu {
             const value = this.system.items[key];
             if(!value.type) continue;
             await this.createImageInElement(document.getElementById('fnItems'), false, [value, 0, 0, null, 120, 123, value.id, true, true]);
-            $(`#${value.id}`).hover(() => {
-                $('.m').css('top', `${$(`#${value.id}`).offset().top - 38 + 77}px`);
-                document.querySelector('body').onresize = () => $('.m').css('top', `${$(`#${value.id}`).offset().top - 38 + 77}px`);
-                $('.m').html(value.type.value.toUpperCase());
-                $('.m').fadeIn(0);
-            }, () => {
-                $('.m').fadeOut(0);
-                document.querySelector('body').onresize = null;
-            });
-            document.querySelector('body').onresize = () => $('.m').css('top', `${$('#CID_337_Athena_Commando_F_Celestial').offset().top - 38 + 77}px`);
         }
         const buttons = document.createElement('div');
         document.getElementById('fnItems').appendChild(buttons);

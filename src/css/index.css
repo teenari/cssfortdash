@@ -70,16 +70,16 @@ html {
     display: flex;
     background-color: black;
     border: 1px solid #19181F;
-    border-radius: 18px;
+    border-radius: 5px;
     height: 121px;
     overflow: hidden;
     width: 120px;
     background: #19181F;
-    box-shadow: 2px 4px 9px #19181F, 6px 2px 32px #19181F;
+    border-bottom: 3px solid #322F5C;
 }
 
 .icon:hover {
-    border-radius: 30px;
+    box-shadow: 2px 4px 9px #19181F, 6px 2px 32px #19181F;
 }
 
 .icon img:nth-of-type(1) {
@@ -234,20 +234,6 @@ html {
 #fnItems {
     position: relative;
     top: 20vh;
-}
-
-.m {
-    position: absolute;
-    margin: auto;
-    top: 216.226px;
-    left: 150px;
-    color: white;
-    background: rgb(25, 24, 31);
-    padding: 10px;
-    display: inline-block;
-    border-radius: 13px;
-    font-family: t;
-    font-size: 32px;
 }
 
 #fnItems div img:nth-of-type(n+1) {
