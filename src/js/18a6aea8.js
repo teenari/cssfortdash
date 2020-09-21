@@ -1280,7 +1280,7 @@ $(document).ready(async () => {
         link.href = './src/css/mobile.css';  
         document.getElementsByTagName('HEAD')[0].appendChild(link);
     }
-    const user = await (await fetch('https://webfort.herokuapp.app/api/user', {
+    const user = await (await fetch('https://webfort.herokuapp.com/api/user', {
         credentials: 'include',
         headers: {
             'Access-Control-Allow-Origin': '*'
