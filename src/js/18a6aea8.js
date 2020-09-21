@@ -31,7 +31,7 @@ let ifMobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.matc
 //         url,
 //         displayName
 //     }) {
-//         this.url = url || 'https://cssfort.herokuapp.com';
+//         this.url = url || 'https://webfort.herokuapp.com';
 //         this.account = null;
 //         this.party = null;
 //         this.friends = null;
@@ -850,7 +850,7 @@ class System {
         theme,
         displayName
     }) {
-        this.url = url || 'https://cssfort.herokuapp.com';
+        this.url = url || 'https://webfort.herokuapp.com';
         this.account = null;
         this.party = null;
         this.friends = null;
@@ -932,7 +932,7 @@ class System {
         this.menu.setLoadingText('Creating Event Source');
         this.source = await this.makeSource();
         window.onbeforeunload = async () => {
-            await fetch(`https://cssfort.herokuapp.com/api/account`, {
+            await fetch(`https://webfort.herokuapp.com/api/account`, {
                 credentials: 'include',
                 headers: {
                     'Access-Control-Allow-Origin': "https://teenari.github.io"
@@ -1280,16 +1280,16 @@ $(document).ready(async () => {
         link.href = './src/css/mobile.css';  
         document.getElementsByTagName('HEAD')[0].appendChild(link);
     }
-    const user = await (await fetch('https://cssfort.herokuapp.com/api/user', {
+    const user = await (await fetch('https://webfort.herokuapp.app/api/user', {
         credentials: 'include',
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
     })).json();
     if(user.authorization === false) {
-        window.location = 'https://discord.com/api/oauth2/authorize?client_id=735921855340347412&redirect_uri=https%3A%2F%2Fcssfort.herokuapp.com%2Fapi%2Fauthorize&response_type=code&scope=identify';
+        window.location = 'https://discord.com/api/oauth2/authorize?client_id=735921855340347412&redirect_uri=https%3A%2F%2Fwebfort.herokuapp.com%2Fapi%2Fauthorize&response_type=code&scope=identify';
     }
-    const accountsNames = await (await fetch(`https://cssfort.herokuapp.com/api/accounts`, {
+    const accountsNames = await (await fetch(`https://webfort.herokuapp.com/api/accounts`, {
         credentials: 'include',
         headers: {
             'Access-Control-Allow-Origin': '*'
