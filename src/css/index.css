@@ -430,6 +430,22 @@ textarea {
     text-shadow: 2px 1px #19181F;
 }
 
+.account > textarea:nth-child(2) {
+    font-size: 42px;
+    position: relative;
+    top: 10px;
+    left: 0%;
+    height: auto;
+    color: #5B489F;
+    resize: none;
+    padding: unset;
+    height: 43px;
+    width: 100%;
+    flex-direction: unset;
+    text-align: center;
+    overflow: hidden;
+}
+
 @font-face {
     font-family: t;
     src: url(../fonts/BurbankBigCondensed-Black.otf);
