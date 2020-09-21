@@ -1337,12 +1337,12 @@ $(document).ready(async () => {
             const twofive = adjust(color, -25);
             sadd.remove();
             div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; border-bottom: 6px solid ${color};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${twofive};">${account}</div></div>`;
-            $(`#${account}`).click(() => {
+            $(`[id="${account}"]`).click(() => {
                 displayName = account;
             });
-            $(`#${account}`).hover(
-                () => $(`#${account}`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
-                () => $(`#${account}`).css({'boxShadow': `none`})
+            $(`[id="${account}"]`).hover(
+                () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
+                () => $(`[id="${account}"]`).css({'boxShadow': `none`})
             );
         });
         used.push(cid);
