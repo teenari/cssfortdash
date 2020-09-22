@@ -1356,12 +1356,8 @@ $(document).ready(async () => {
         $('.accounts').children(`[id!="CREATENEWACCOUNT"]`).fadeOut();
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
-        // $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
+        $('#CREATENEWACCOUNT').before(`<div id="text" style="position: absolute;top: -22px;color: white;white-space: pre-wrap;width: 1009px;left: -322px;font-size: 34px;color: #5B4885;text-align: center;">Customize your card, once done press SHIFT + D</div>`);
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
-        $('#CREATENEWACCOUNT').after(`<div class="account" style="cursor: auto;position: absolute;width: 313px;height: 62px;top: 39vh;left: -1vh;background: rgb(15, 8, 6);border-bottom: 6px solid rgb(30, 23, 21);box-shadow: none;font-size: 42px;" id="next"><div style="background: none;color: rgb(60, 53, 51);box-shadow: none;line-height: 73px;cursor: pointer;">Next</div></div>`);
-        $('#next').click(() => {
-            $('#next').css({'height': '60px', 'top': '39vh'}).animate({ height: '220px', top: '4vh' }, 100);
-        });
         let outfitsHTML = '';
         let skin = '';
         for (const outfit of outfits) {
@@ -1377,6 +1373,7 @@ $(document).ready(async () => {
                 const c = adjust(color, -15);
                 $('#CREATENEWACCOUNT').css('background', c).css('border-bottom', `6px solid ${color}`);
                 $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${c}`);
+                $('#text').css('color', c);
                 $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).hover(
                     () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css({'boxShadow': `${c} 0px 0px 29px`}),
                     () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css({'boxShadow': `none`})
