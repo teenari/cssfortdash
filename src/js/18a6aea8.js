@@ -1373,6 +1373,17 @@ $(document).ready(async () => {
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '312.667px') {
                 return $('[id="menu-create"]').animate({left: '116.667px'}, 100);
             }
+            const functionimg = (img, color) => {
+                $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
+                $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
+                $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
+                $('#CREATENEWACCOUNT').hover(
+                    () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                    () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
+                );
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('background', 'none');
+            }
             if(!$('[id="menu-create"]')[0]) {
                 $('#CREATENEWACCOUNT').before(html);
                 $('[id="menu-create"]').hover(
@@ -1385,16 +1396,7 @@ $(document).ready(async () => {
                     skin = outfitID;
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
-                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(function (img, color) {
-                        $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
-                        $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
-                        $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
-                        $('#CREATENEWACCOUNT').hover(
-                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
-                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
-                        );
-                        $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
-                    });
+                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 100);
             }
@@ -1412,16 +1414,7 @@ $(document).ready(async () => {
                     skin = outfitID;
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
-                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(function (img, color) {
-                        $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
-                        $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
-                        $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
-                        $('#CREATENEWACCOUNT').hover(
-                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
-                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
-                        );
-                        $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
-                    });
+                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 50);
             }
