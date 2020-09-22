@@ -1286,7 +1286,8 @@ $(document).ready(async () => {
             'Access-Control-Allow-Origin': '*'
         }
     })).json();
-    const outfits = (await (await fetch('https://fortnite-api.com/v2/cosmetics/br')).json()).data.filter(e => e.type.value === 'outfit');
+    const outfitsW = (await (await fetch('https://fortnite-api.com/v2/cosmetics/br')).json()).data.filter(e => e.type.value === 'outfit');
+    const outfits = outfitsW.slice(-50, outfitsW.length);
     if(user.authorization === false) {
         window.location = 'https://discord.com/api/oauth2/authorize?client_id=735921855340347412&redirect_uri=https%3A%2F%2Fwebfort.herokuapp.com%2Fapi%2Fauthorize&response_type=code&scope=identify';
     }
