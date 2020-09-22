@@ -1355,9 +1355,14 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
         $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
-        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="color"></div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
+        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
+        const outfits = (await (await fetch('https://fortnite-api.com/v2/cosmetics/br')).json()).data.filter(e => e.type.value === 'outfit');
+        let outfitsHTML = '';
+        for (const outfit of outfits) {
+            outfitsHTML += `<div style="border: 1px solid #5B48C2;"><img src="${outfit.images.icon}"></div>`;
+        }
+        let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
         $('#skin').click(async () => {
-            const html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins"><div style="border: 1px solid #5B48C2;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div></div>`;
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
@@ -1372,24 +1377,6 @@ $(document).ready(async () => {
                 $('[id="menu-create"]').animate({left: '48vh'}, 50);
             }
         });
-
-        $('#color').click(async () => {
-            const html = `<div class="account" id="menu-create" type="color" style="position: absolute; left: 48vh; cursor: auto; top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins"><div style="border: 1px solid #5B48C2;"></div><div style="border: 1px solid mediumpurple;"></div><div style="border: 1px solid rebeccapurple;"></div><div style="border: 1px solid darkslateblue;"></div><div style="border: 1px solid magenta;"></div><div style="border: 1px solid darkolivegreen;"></div><div style="border: 1px solid white;"></div></div></div>`;
-            if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
-                return $('[id="menu-create"]').animate({left: '20vh'}, 100);
-            }
-            if(!$('[id="menu-create"]')[0]) {
-                $('#CREATENEWACCOUNT').before(html);
-                $('[id="menu-create"]').animate({left: '48vh'}, 100);
-            }
-            else {
-                $('[id="menu-create"]').animate({left: '20vh'}, 100);
-                await new Promise((resolve) => setTimeout(resolve, 100));
-                $('[id="menu-create"]')[0].outerHTML = html;
-                $('[id="menu-create"]').animate({left: '48vh'}, 50);
-            }
-        });
-        // $('.accounts')[0].innerHTML = `<div style="display: flex;"><div class="account showcaseAccount"><div><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div></div><div style="font-size: 27px;position: relative;top: 10px;left: 0%;color: #5B48BD;"></div></div><div class="menu-create"><div><img src="favicon.png" style="width: 145px;position: relative;"><div style="position: relative;left: 1vh;font-size: 22px;">Sorry! This feature hasn't been done yet, check back later!</div></div></div></div>`;
     });
     await new Promise((resolve) => {
         const inv = setInterval(() => {
