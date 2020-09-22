@@ -1356,7 +1356,7 @@ $(document).ready(async () => {
         $('.accounts').children(`[id!="CREATENEWACCOUNT"]`).fadeOut();
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
-        $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
+        // $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
         let outfitsHTML = '';
         let skin = '';
