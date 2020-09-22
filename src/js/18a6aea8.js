@@ -1323,13 +1323,13 @@ $(document).ready(async () => {
     ];
     const used = [];
     let displayName;
+    const adjust = (color, amount) => '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
 
     for (const account of accountsNames.accounts) {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
         const cid = cids.filter(e => !used.includes(e))[cids.filter(e => !used.includes(e)).length * Math.random() | 0];
         const src = `https://fortnite-api.com/images/cosmetics/br/${cid}/icon.png`;
-        const adjust = (color, amount) => '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
         const sadd = document.createElement('img');
         sadd.src = src;
         sadd.hidden = true;
@@ -1371,6 +1371,11 @@ $(document).ready(async () => {
                     skin = outfitID;
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '20vh'}, 100);
+                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(function (img, color) {
+                        $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
+                        $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
+                        $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
+                    });
                 });
                 $('[id="menu-create"]').animate({left: '48vh'}, 100);
             }
@@ -1383,6 +1388,11 @@ $(document).ready(async () => {
                     skin = outfitID;
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '20vh'}, 100);
+                    $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(function (img, color) {
+                        $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
+                        $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
+                        $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
+                    });
                 });
                 $('[id="menu-create"]').animate({left: '48vh'}, 50);
             }
