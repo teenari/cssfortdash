@@ -1360,16 +1360,15 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
         let outfitsHTML = '';
         let skin = '';
+        for (const outfit of outfits) {
+            outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
+        }
         $('#skin').click(async () => {
             let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;background: ${$('#CREATENEWACCOUNT').css('background')};border-bottom: 3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><div style="height: 101px;background: ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
             if(!$('[id="menu-create"]')[0]) {
-                outfitsHTML = '';
-                for (const outfit of outfits) {
-                    outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
-                }
                 $('#CREATENEWACCOUNT').before(html);
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
@@ -1387,10 +1386,6 @@ $(document).ready(async () => {
             else {
                 $('[id="menu-create"]').animate({left: '20vh'}, 100);
                 await new Promise((resolve) => setTimeout(resolve, 100));
-                outfitsHTML = '';
-                for (const outfit of outfits) {
-                    outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
-                }
                 $('[id="menu-create"]')[0].outerHTML = html;
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
