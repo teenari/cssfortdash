@@ -1361,7 +1361,7 @@ $(document).ready(async () => {
         let outfitsHTML = '';
         let skin = '';
         for (const outfit of outfits) {
-            outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
+            outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${outfit.images.icon}"></div>`;
         }
         $('#skin').click(async () => {
             console.log($('#CREATENEWACCOUNT').children().eq(0).css('background'));
