@@ -509,18 +509,14 @@ textarea {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
 }
   
 ::-webkit-scrollbar-track {
-    background: #19181F; 
     opacity: 0;
 }
   
 ::-webkit-scrollbar-thumb {
-    background: #322f3d;
-}
-  
-::-webkit-scrollbar-thumb:hover {
-    background: white; 
+    background: #5B48C2;
+    opacity: 0;
 }
