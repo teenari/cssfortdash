@@ -1372,7 +1372,7 @@ $(document).ready(async () => {
             if(!$('[id="menu-create"]')[0]) {
                 $('#CREATENEWACCOUNT').before(html);
                 $('[id="menu-create"]').hover(
-                    () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background')} 0px 0px 29px`}),
+                    () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('[id="menu-create"]').css({'boxShadow': `none`})
                 );
                 $('[type="skin"]').css('border-bottom', `3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')}`);
@@ -1394,7 +1394,7 @@ $(document).ready(async () => {
                 await new Promise((resolve) => setTimeout(resolve, 100));
                 $('[id="menu-create"]')[0].outerHTML = html;
                 $('[id="menu-create"]').hover(
-                    () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background')} 0px 0px 29px`}),
+                    () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('[id="menu-create"]').css({'boxShadow': `none`})
                 );
                 $('[type="skin"]').css('border-bottom', `3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')}`);
