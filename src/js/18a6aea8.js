@@ -1269,7 +1269,8 @@ const system = new System({
     theme: 'Default',
     eventHandler: console.log,
     messageHandler: console.log,
-    displayName: ''
+    displayName: '',
+    url: 'https://er.teenari.repl.co'
 });
 
 $(document).ready(async () => {
