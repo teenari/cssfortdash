@@ -1381,11 +1381,11 @@ $(document).ready(async () => {
                     () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
                 );
-                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('background', 'none');
             }
             if(!$('[id="menu-create"]')[0]) {
                 $('#CREATENEWACCOUNT').before(html);
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 $('[id="menu-create"]').hover(
                     () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('[id="menu-create"]').css({'boxShadow': `none`})
@@ -1408,6 +1408,7 @@ $(document).ready(async () => {
                     () => $('[id="menu-create"]').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('[id="menu-create"]').css({'boxShadow': `none`})
                 );
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 $('[type="skin"]').css('border-bottom', `3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')}`);
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
