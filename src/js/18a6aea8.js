@@ -1377,6 +1377,10 @@ $(document).ready(async () => {
                 const c = adjust(color, -15);
                 $('#CREATENEWACCOUNT').css('background', c).css('border-bottom', `6px solid ${color}`);
                 $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${c}`);
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).hover(
+                    () => $('#CREATENEWACCOUNT').css({'boxShadow': `${c} 0px 0px 29px`}),
+                    () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
+                );
                 $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                 $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
                 $('#CREATENEWACCOUNT').hover(
