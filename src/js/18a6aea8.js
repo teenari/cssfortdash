@@ -1371,6 +1371,7 @@ $(document).ready(async () => {
             }
             if(!$('[id="menu-create"]')[0]) {
                 $('#CREATENEWACCOUNT').before(html);
+                $('[type="skin"]').css('border-bottom', `3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')}`);
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
                     skin = outfitID;
@@ -1388,6 +1389,7 @@ $(document).ready(async () => {
                 $('[id="menu-create"]').animate({left: '20vh'}, 100);
                 await new Promise((resolve) => setTimeout(resolve, 100));
                 $('[id="menu-create"]')[0].outerHTML = html;
+                $('[type="skin"]').css('border-bottom', `3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')}`);
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
                     skin = outfitID;
