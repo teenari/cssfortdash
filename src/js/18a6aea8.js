@@ -1358,7 +1358,7 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="color"></div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
         $('#skin').click(async () => {
             const html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins"><div style="border: 1px solid #5B48C2;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div></div>`;
-            if($('[class="account"]')[0] && $('[class="account"]')[0].style.left === '48vh') {
+            if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
             if(!$('[id="menu-create"]')[0]) {
@@ -1375,7 +1375,7 @@ $(document).ready(async () => {
 
         $('#color').click(async () => {
             const html = `<div class="account" id="menu-create" type="color" style="position: absolute; left: 48vh; cursor: auto; top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins"><div style="border: 1px solid #5B48C2;"></div><div style="border: 1px solid mediumpurple;"></div><div style="border: 1px solid rebeccapurple;"></div><div style="border: 1px solid darkslateblue;"></div><div style="border: 1px solid magenta;"></div><div style="border: 1px solid darkolivegreen;"></div><div style="border: 1px solid white;"></div></div></div>`;
-            if($('[class="account"]')[0] && $('[class="account"]')[0].style.left === '48vh') {
+            if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
             if(!$('[id="menu-create"]')[0]) {
