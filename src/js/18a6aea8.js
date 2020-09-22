@@ -1359,7 +1359,7 @@ $(document).ready(async () => {
         $('#skin').click(async () => {
             // 48vh
             const html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins"><div style="border: 1px solid #5B48C2;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div></div>`;
-            if($('[class="account"][type="skin"]')[0]) {
+            if($('[class="account"][type="skin"]')[0] && $('[class="account"][type="skin"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
             if(!$('[id="menu-create"]')[0]) {
