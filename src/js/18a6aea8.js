@@ -1364,6 +1364,7 @@ $(document).ready(async () => {
             outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
         }
         $('#skin').click(async () => {
+            console.log($('#CREATENEWACCOUNT').children().eq(0).css('background'));
             let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;background: ${$('#CREATENEWACCOUNT').css('background')};border-bottom: 3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><div style="height: 101px;background: ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
