@@ -454,12 +454,19 @@ textarea {
 .account > div:nth-child(1) > div > div {
     width: 24px;
     height: 24px;
-    top: -117%;
-    left: 90%;
+    top: -118%;
+    left: 88%;
+    margin: 5px;
     position: relative;
     outline: 1px solid #382C52;
     transition: 0.2s;
     cursor: pointer;
+}
+
+.account > div:nth-child(1) > div > div > img {
+    width: 24px;
+    position: relative;
+    top: -17px;
 }
 
 .account > div:nth-child(1) > div > div:hover {
