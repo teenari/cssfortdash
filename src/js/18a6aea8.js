@@ -1355,6 +1355,7 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
         $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
+        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div></div></div>';
         // $('.accounts')[0].innerHTML = `<div style="display: flex;"><div class="account showcaseAccount"><div><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div></div><div style="font-size: 27px;position: relative;top: 10px;left: 0%;color: #5B48BD;"></div></div><div class="menu-create"><div><img src="favicon.png" style="width: 145px;position: relative;"><div style="position: relative;left: 1vh;font-size: 22px;">Sorry! This feature hasn't been done yet, check back later!</div></div></div></div>`;
     });
     await new Promise((resolve) => {

@@ -446,6 +446,28 @@ textarea {
     overflow: hidden;
 }
 
+.account > div:nth-child(1) > div {
+    width: 100%;
+    height: 100%;
+}
+
+.account > div:nth-child(1) > div > div {
+    width: 24px;
+    height: 24px;
+    top: -117%;
+    left: 90%;
+    position: relative;
+    outline: 1px solid #382C52;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.account > div:nth-child(1) > div > div:hover {
+    outline: 1px solid #5B4897;
+    background: #382C52;
+    box-shadow: 0px 0px 18px #382C52;
+}
+
 @font-face {
     font-family: t;
     src: url(../fonts/BurbankBigCondensed-Black.otf);
