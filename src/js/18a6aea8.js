@@ -1286,6 +1286,7 @@ $(document).ready(async () => {
             'Access-Control-Allow-Origin': '*'
         }
     })).json();
+    const outfits = (await (await fetch('https://fortnite-api.com/v2/cosmetics/br')).json()).data.filter(e => e.type.value === 'outfit');
     if(user.authorization === false) {
         window.location = 'https://discord.com/api/oauth2/authorize?client_id=735921855340347412&redirect_uri=https%3A%2F%2Fwebfort.herokuapp.com%2Fapi%2Fauthorize&response_type=code&scope=identify';
     }
@@ -1356,13 +1357,9 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
         $('#CREATENEWACCOUNT').before(`<div style="position: absolute;top: -41px;color: white;white-space: pre-wrap;width: 409px;left: -32px;color: #5B4885;">Enter your bot name.</div>`);
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
-        const outfits = (await (await fetch('https://fortnite-api.com/v2/cosmetics/br')).json()).data.filter(e => e.type.value === 'outfit');
         let outfitsHTML = '';
-        for (const outfit of outfits) {
-            outfitsHTML += `<div style="border: 1px solid #5B48C2;"><img src="${outfit.images.icon}"></div>`;
-        }
-        let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
         $('#skin').click(async () => {
+            let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 20vh;cursor: auto;top: 5vh;"><div style="height: 101px;"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '48vh') {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
@@ -1377,6 +1374,9 @@ $(document).ready(async () => {
                 $('[id="menu-create"]').animate({left: '48vh'}, 50);
             }
         });
+        for (const outfit of outfits) {
+            outfitsHTML += `<div style="border: 1px solid #5B48C2;"><img src="${outfit.images.icon}"></div>`;
+        }
     });
     await new Promise((resolve) => {
         const inv = setInterval(() => {
