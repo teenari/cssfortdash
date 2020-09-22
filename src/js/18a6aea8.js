@@ -1393,6 +1393,7 @@ $(document).ready(async () => {
                             () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                             () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
                         );
+                        $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                     });
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 100);
@@ -1419,6 +1420,7 @@ $(document).ready(async () => {
                             () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                             () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
                         );
+                        $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                     });
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 50);
