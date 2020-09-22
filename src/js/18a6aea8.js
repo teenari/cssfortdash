@@ -1374,7 +1374,9 @@ $(document).ready(async () => {
                 return $('[id="menu-create"]').animate({left: '116.667px'}, 100);
             }
             const functionimg = (img, color) => {
-                $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
+                const c = adjust(color, -15);
+                $('#CREATENEWACCOUNT').css('background', c).css('border-bottom', `6px solid ${color}`);
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${c}`);
                 $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                 $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
                 $('#CREATENEWACCOUNT').hover(
@@ -1397,7 +1399,6 @@ $(document).ready(async () => {
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
-                    $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 100);
             }
@@ -1417,7 +1418,6 @@ $(document).ready(async () => {
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
-                    $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 50);
             }
