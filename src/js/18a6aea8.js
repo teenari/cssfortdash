@@ -1385,6 +1385,10 @@ $(document).ready(async () => {
                         $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
                         $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                         $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
+                        $('#CREATENEWACCOUNT').hover(
+                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
+                        );
                     });
                 });
                 $('[id="menu-create"]').animate({left: '48vh'}, 100);
@@ -1407,6 +1411,10 @@ $(document).ready(async () => {
                         $('#CREATENEWACCOUNT').css('background', adjust(color, -15)).css('border-bottom', `6px solid ${color}`);
                         $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                         $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
+                        $('#CREATENEWACCOUNT').hover(
+                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                            () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
+                        );
                     });
                 });
                 $('[id="menu-create"]').animate({left: '48vh'}, 50);
