@@ -1047,10 +1047,18 @@ class System {
     }
 
     async sendRequest(path, options) {
-        return await fetch(`${this.url}/${path}`, {
+        if(this.url === 'https://webfort.herokuapp.com') return await fetch(`${this.url}/${path}`, {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': "https://teenari.github.io"
+            },
+            ...options
+        });
+        else return await fetch(`${this.url}/${path}`, {
+            credentials: 'omit',
+            headers: {
+                'Access-Control-Allow-Origin': "https://teenari.github.io",
+                'Set-Cookie': 'auth=ad'
             },
             ...options
         });
@@ -1270,7 +1278,7 @@ const system = new System({
     eventHandler: console.log,
     messageHandler: console.log,
     displayName: '',
-    url: 'https://er.teenari.repl.co'
+    url: 'http://er.teenari.repl.co'
 });
 
 $(document).ready(async () => {
