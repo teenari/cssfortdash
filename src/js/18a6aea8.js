@@ -1366,6 +1366,10 @@ $(document).ready(async () => {
                 return $('[id="menu-create"]').animate({left: '20vh'}, 100);
             }
             if(!$('[id="menu-create"]')[0]) {
+                outfitsHTML = '';
+                for (const outfit of outfits) {
+                    outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
+                }
                 $('#CREATENEWACCOUNT').before(html);
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
@@ -1383,6 +1387,10 @@ $(document).ready(async () => {
             else {
                 $('[id="menu-create"]').animate({left: '20vh'}, 100);
                 await new Promise((resolve) => setTimeout(resolve, 100));
+                outfitsHTML = '';
+                for (const outfit of outfits) {
+                    outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').css('background')};"><img src="${outfit.images.icon}"></div>`;
+                }
                 $('[id="menu-create"]')[0].outerHTML = html;
                 $('[class="accounts-create-skins"]').children().click((e) => {
                     const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
@@ -1398,9 +1406,6 @@ $(document).ready(async () => {
                 $('[id="menu-create"]').animate({left: '48vh'}, 50);
             }
         });
-        for (const outfit of outfits) {
-            outfitsHTML += `<div style="border: 1px solid #5B48C2;"><img src="${outfit.images.icon}"></div>`;
-        }
     });
     await new Promise((resolve) => {
         const inv = setInterval(() => {
