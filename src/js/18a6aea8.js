@@ -1397,6 +1397,7 @@ $(document).ready(async () => {
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
+                    $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 100);
             }
@@ -1416,6 +1417,7 @@ $(document).ready(async () => {
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).attr('src', e.target.src);
                     $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                     $(`[src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"]`).imgcolr(functionimg);
+                    $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$('#CREATENEWACCOUNT').css('background').split(' none')[0]}`);
                 });
                 $('[id="menu-create"]').animate({left: '312.667px'}, 50);
             }
