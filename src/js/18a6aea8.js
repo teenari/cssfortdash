@@ -1385,6 +1385,10 @@ $(document).ready(async () => {
                     () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
                 );
                 $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('background', 'none');
+                outfitsHTML = '';
+                for (const outfit of outfits) {
+                    outfitsHTML += `<div style="border: 1px solid ${color};"><img src="${outfit.images.icon}"></div>`;
+                }
             }
             if(!$('[id="menu-create"]')[0]) {
                 $('#CREATENEWACCOUNT').before(html);
