@@ -1387,6 +1387,7 @@ $(document).ready(async () => {
                     () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css({'boxShadow': `${c} 0px 0px 29px`}),
                     () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css({'boxShadow': `none`})
                 );
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css({'color': c});
                 $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                 $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
                 $('#CREATENEWACCOUNT').hover(
