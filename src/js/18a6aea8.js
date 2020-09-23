@@ -1047,7 +1047,7 @@ class System {
     }
 
     async sendRequest(path, options) {
-        console.log(this.url)
+        console.log(`${this.url}/${path}`)
         if(this.url === 'https://webfort.herokuapp.com') return await fetch(`${this.url}/${path}`, {
             credentials: 'include',
             headers: {
@@ -1058,7 +1058,6 @@ class System {
         else return await fetch(`${this.url}/${path}`, {
             credentials: 'omit',
             headers: {
-                'Access-Control-Allow-Origin': "https://teenari.github.io",
                 'Set-Cookie': 'auth=ad'
             },
             ...options
