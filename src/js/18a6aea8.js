@@ -1334,7 +1334,8 @@ $(document).ready(async () => {
     let displayName;
     const adjust = (color, amount) => '#' + color.replace(/^#/, '').replace(/../g, color => ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
 
-    for (const account of accountsNames.accounts) {
+    for (const accountO of accountsNames.accounts) {
+        const account = accountO.name;
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
         const cid = cids.filter(e => !used.includes(e))[cids.filter(e => !used.includes(e)).length * Math.random() | 0];
@@ -1447,5 +1448,6 @@ $(document).ready(async () => {
     $('.loading').fadeOut(300);
     await new Promise((resolve) => setTimeout(resolve, 300));
     system.displayName = displayName;
+    if(accountsNames.accounts.find(e => e.name === system.displayName && e.repl)) system.url = accountsNames.accounts.find(e => e.name === system.displayName && e.repl).repl;
     await system.authorize();
 });
