@@ -1047,6 +1047,7 @@ class System {
     }
 
     async sendRequest(path, options) {
+        console.log(this.url)
         if(this.url === 'https://webfort.herokuapp.com') return await fetch(`${this.url}/${path}`, {
             credentials: 'include',
             headers: {
