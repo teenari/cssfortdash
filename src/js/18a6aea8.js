@@ -1366,7 +1366,7 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
         $('#CREATENEWACCOUNT').before(`<div id="text" style="position: absolute;top: -22px;color: white;white-space: pre-wrap;width: 1009px;left: -322px;font-size: 34px;color: #5B4885;text-align: center;">Customize your card, once done press SHIFT + D</div>`);
-        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div></div>';
+        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div id="done" style="width: 40px;height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>';
         let outfitsHTML = '';
         let skin = '';
         for (const outfit of outfits) {
@@ -1381,11 +1381,11 @@ $(document).ready(async () => {
             const functionimg = (img, color) => {
                 const c = adjust(color, -15);
                 $('#CREATENEWACCOUNT').css('background', c).css('border-bottom', `6px solid ${color}`);
-                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${c}`);
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css('outline', `1px solid ${c}`);
                 $('#text').css('color', c);
-                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).hover(
-                    () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css({'boxShadow': `${c} 0px 0px 29px`}),
-                    () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css({'boxShadow': `none`})
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().hover(
+                    () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css({'boxShadow': `${c} 0px 0px 29px`}),
+                    () => $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css({'boxShadow': `none`})
                 );
                 $('#CREATENEWACCOUNT').children().eq(0).css('background', color);
                 $('#CREATENEWACCOUNT').children().eq(1).css('color', adjust(color, 30));
@@ -1393,7 +1393,7 @@ $(document).ready(async () => {
                     () => $('#CREATENEWACCOUNT').css({'boxShadow': `${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
                     () => $('#CREATENEWACCOUNT').css({'boxShadow': `none`})
                 );
-                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().eq(0).css('background', 'none');
+                $('#CREATENEWACCOUNT').children().eq(0).children().eq(1).children().css('background', 'none');
                 outfitsHTML = '';
                 for (const outfit of outfits) {
                     outfitsHTML += `<div style="border: 1px solid ${color};"><img src="${outfit.images.icon}"></div>`;
