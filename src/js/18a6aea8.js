@@ -1010,7 +1010,7 @@ class System {
     }
 
     async getAuthorizeCode() {
-        return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
+        return (await (await this.sendRequest('https://webfort.herokuapp.com/api/auth', {}, true)).json()).auth;
     }
 
     async setProperties() {
