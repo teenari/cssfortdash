@@ -1365,15 +1365,19 @@ $(document).ready(async () => {
         $('.accounts').children(`[id!="CREATENEWACCOUNT"]`).fadeOut();
         $('#CREATENEWACCOUNT').css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
         $('#CREATENEWACCOUNT').off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
-        $('#CREATENEWACCOUNT').before(`<div id="text" style="position: absolute;top: -22px;color: white;white-space: pre-wrap;width: 1009px;left: -322px;font-size: 34px;color: #5B4885;text-align: center;">Customize your card, once done press SHIFT + D</div>`);
-        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div id="done" style="width: 40px;height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>';
+        $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div id="done" style="width: 40px;color: #382C52;height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>';
         let outfitsHTML = '';
         let skin = '';
         for (const outfit of outfits) {
             outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${outfit.images.icon}"></div>`;
         }
+        $('#done').click(async () => {
+            if(!$('#CREATENEWACCOUNT').children().eq(1).val()) return;
+            $('[id="menu-create"]').fadeOut();
+            $('#CREATENEWACCOUNT').animate({'height': '0px'}, 100);
+            $('#CREATENEWACCOUNT').animate({'height': '218px'}, 200);
+        });
         $('#skin').click(async () => {
-            console.log($('#CREATENEWACCOUNT').children().eq(0).css('background'));
             let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 116.667px;cursor: auto;top: 35.4844px;background: ${$('#CREATENEWACCOUNT').css('background')};border-bottom: 3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none')};"><div style="height: 101px;background: ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
             if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '312.667px') {
                 return $('[id="menu-create"]').animate({left: '116.667px'}, 100);
