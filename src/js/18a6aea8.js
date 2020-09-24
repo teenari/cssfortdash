@@ -857,6 +857,7 @@ class System {
         this.hiddenMembers = null;
         this.source = null;
         this.user = null;
+        this.auth = null;
         this.displayName = displayName;
         this.messages = {
             party: null,
@@ -927,6 +928,7 @@ class System {
 
     async authorize() {
         this.user = await this.getUser();
+        this.auth = this.getAuthorizeCode();
         this.menu.setLoadingText('Logging out of last session');
         await this.logout();
         this.menu.setLoadingText('Creating new session');
@@ -1007,10 +1009,6 @@ class System {
 
     async makeSource() {
         return new EventSource(`${this.url}/api/account/authorize?auth=${this.auth}`);
-    }
-
-    async getAuthorizeCode() {
-        return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
     }
 
     async setProperties() {
@@ -1136,6 +1134,11 @@ class System {
     setSourceEvent(source) {
         source.onmessage = this.eventHandler;
         return this;
+    }
+    
+    getAuthorizeCode() {
+        return this.user.id;
+        // return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
     }
 
     get members() {
