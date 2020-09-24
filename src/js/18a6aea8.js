@@ -1010,7 +1010,7 @@ class System {
     }
 
     async getAuthorizeCode() {
-        return (await (await this.sendRequest('api/auth')).json()).auth;
+        return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
     }
 
     async setProperties() {
@@ -1048,15 +1048,15 @@ class System {
         return await (await this.sendRequest('api/account/time')).json();
     }
 
-    async sendRequest(path, options) {
-        if(this.url === 'https://webfort.herokuapp.com') return await fetch(`${this.url}/${path}`, {
+    async sendRequest(path, options, isURL) {
+        if(this.url === 'https://webfort.herokuapp.com') return await fetch(isURL ? path : `${this.url}/${path}`, {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': "https://teenari.github.io"
             },
             ...options
         });
-        else return await fetch(`${this.url}/${path}`, {
+        else return await fetch(isURL ? path : `${this.url}/${path}`, {
             credentials: 'omit',
             headers: {
                 'Set-Cookie': `auth=${this.auth}`
