@@ -1135,7 +1135,7 @@ class System {
         source.onmessage = this.eventHandler;
         return this;
     }
-    
+
     getAuthorizeCode() {
         return this.user.id;
         // return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
@@ -1347,7 +1347,7 @@ $(document).ready(async () => {
         const div = document.createElement('div');
         document.getElementsByClassName('accounts')[0].appendChild(div);
         const cid = cids.filter(e => !used.includes(e))[cids.filter(e => !used.includes(e)).length * Math.random() | 0];
-        const src = `https://fortnite-api.com/images/cosmetics/br/${cid}/icon.png`;
+        const src = `https://fortnite-api.com/images/cosmetics/br/${accountO.cid ? accountO.cid : cid}/icon.png`;
         const sadd = document.createElement('img');
         sadd.src = src;
         sadd.hidden = true;
