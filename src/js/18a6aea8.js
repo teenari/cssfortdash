@@ -1049,7 +1049,7 @@ class System {
     }
 
     async sendRequest(path, options, isURL) {
-        if(this.url === 'https://webfort.herokuapp.com') return await fetch(isURL ? path : `${this.url}/${path}`, {
+        if(this.url === 'https://webfort.herokuapp.com' || isURL) return await fetch(isURL ? path : `${this.url}/${path}`, {
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': "https://teenari.github.io"
