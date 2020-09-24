@@ -1127,6 +1127,10 @@ class System {
         return await this.sendRequest(`api/account/party/member/show?id=${id}`);
     }
 
+    async createBot(repl, name, cid) {
+        return await this.sendRequest(`api/account/new?repl=${repl}&name=${name}&cid=${cid}`);
+    }
+
     async getUser() {
         return await (await system.sendRequest('https://webfort.herokuapp.com/api/user', {}, true)).json();
     }
@@ -1138,7 +1142,6 @@ class System {
 
     getAuthorizeCode() {
         return this.user.id;
-        // return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
     }
 
     get members() {
@@ -1382,8 +1385,11 @@ $(document).ready(async () => {
         $('#done').click(async () => {
             if(!$('#CREATENEWACCOUNT').children().eq(1).val()) return;
             $('[id="menu-create"]').fadeOut();
-            $('#CREATENEWACCOUNT').animate({'height': '0px'}, 100);
-            $('#CREATENEWACCOUNT').animate({'height': '218px'}, 200);
+            $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 33px;">Create a repl account.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]}"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;" id="signUpREPL">Sign Up</div></div>`);
+            $('#signUpREPL').click(() => {
+                window.open('https://repl.it/signup', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
+                $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 30px;">Create a webfort api repo.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;" id="CreateAPI">Create</div></div>`);
+            });
         });
         $('#skin').click(async () => {
             let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 116.667px;cursor: auto;top: 35.4844px;background: ${$('#CREATENEWACCOUNT').css('background')};border-bottom: 3px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none')};"><div style="height: 101px;background: ${$('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${$('#CREATENEWACCOUNT').children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
