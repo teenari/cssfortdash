@@ -926,6 +926,7 @@ class System {
     }
 
     async authorize() {
+        this.auth = await this.getAuthorizeCode();
         this.menu.setLoadingText('Logging out of last session');
         await this.logout();
         this.menu.setLoadingText('Creating new session');
@@ -1005,7 +1006,6 @@ class System {
     }
 
     async makeSource() {
-        this.auth = await this.getAuthorizeCode();
         return new EventSource(`${this.url}/api/account/authorize?auth=${this.auth}`);
     }
 
@@ -1049,7 +1049,6 @@ class System {
     }
 
     async sendRequest(path, options) {
-        console.log(`${this.url}/${path}`)
         if(this.url === 'https://webfort.herokuapp.com') return await fetch(`${this.url}/${path}`, {
             credentials: 'include',
             headers: {
