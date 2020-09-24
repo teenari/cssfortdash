@@ -856,7 +856,7 @@ class System {
         this.friends = null;
         this.hiddenMembers = null;
         this.source = null;
-        this.auth = null;
+        this.user = null;
         this.displayName = displayName;
         this.messages = {
             party: null,
@@ -926,7 +926,7 @@ class System {
     }
 
     async authorize() {
-        this.auth = await this.getAuthorizeCode();
+        this.user = await this.getUser();
         this.menu.setLoadingText('Logging out of last session');
         await this.logout();
         this.menu.setLoadingText('Creating new session');
@@ -1059,7 +1059,7 @@ class System {
         else return await fetch(isURL ? path : `${this.url}/${path}`, {
             credentials: 'omit',
             headers: {
-                'Set-Cookie': `auth=${this.auth}`
+                'Set-Cookie': `auth=${this.user.id}`
             },
             ...options
         });
@@ -1127,6 +1127,10 @@ class System {
         $(`#${id}.icon`).animate({opacity: 1}, 300);
         this.hiddenMembers = this.hiddenMembers.filter(m => m.id !== id);
         return await this.sendRequest(`api/account/party/member/show?id=${id}`);
+    }
+
+    async getUser() {
+        return await (await system.sendRequest('api/user')).json();
     }
 
     setSourceEvent(source) {
