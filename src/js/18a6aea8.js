@@ -1130,7 +1130,7 @@ class System {
     }
 
     async getUser() {
-        return await (await system.sendRequest('https://webfort.herokuapp.com/api/auth', {}, true)).json();
+        return await (await system.sendRequest('https://webfort.herokuapp.com/api/user', {}, true)).json();
     }
 
     setSourceEvent(source) {
