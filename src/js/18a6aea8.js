@@ -1010,7 +1010,7 @@ class System {
     }
 
     async getAuthorizeCode() {
-        return (await (await this.sendRequest('https://webfort.herokuapp.com/api/auth', {}, true)).json()).auth;
+        return (await (await this.sendRequest('api/auth', {}, true)).json()).auth;
     }
 
     async setProperties() {
@@ -1130,7 +1130,7 @@ class System {
     }
 
     async getUser() {
-        return await (await system.sendRequest('api/user')).json();
+        return await (await system.sendRequest('https://webfort.herokuapp.com/api/auth', {}, true)).json();
     }
 
     setSourceEvent(source) {
