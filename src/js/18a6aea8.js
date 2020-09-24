@@ -1385,10 +1385,13 @@ $(document).ready(async () => {
         $('#done').click(async () => {
             if(!$('#CREATENEWACCOUNT').children().eq(1).val()) return;
             $('[id="menu-create"]').fadeOut();
-            $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 33px;">Create a repl account.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]}"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;" id="signUpREPL">Sign Up</div></div>`);
+            $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 33px;">Create a repl account.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]}"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px; cursor: pointer;" id="signUpREPL">Sign Up</div></div>`);
             $('#signUpREPL').click(() => {
                 window.open('https://repl.it/signup', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
-                $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 30px;">Create a webfort api repo.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;" id="CreateAPI">Create</div></div>`);
+                $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};font-size: 30px;">Create a webfort api repo.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor:pointer;" id="CreateAPI">Create</div></div>`);
+                $('#CreateAPI').click(() => {
+                    window.open('https://repl.it/@teenari/wbdapi', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
+                });
             });
         });
         $('#skin').click(async () => {
