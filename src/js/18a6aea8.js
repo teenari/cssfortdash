@@ -856,6 +856,7 @@ class System {
         this.friends = null;
         this.hiddenMembers = null;
         this.source = null;
+        this.auth = null;
         this.displayName = displayName;
         this.messages = {
             party: null,
@@ -932,7 +933,7 @@ class System {
         this.menu.setLoadingText('Creating Event Source');
         this.source = await this.makeSource();
         window.onbeforeunload = async () => {
-            await fetch(`https://webfort.herokuapp.com/api/account`, {
+            await fetch(`${this.url}/api/account`, {
                 credentials: 'include',
                 headers: {
                     'Access-Control-Allow-Origin': "https://teenari.github.io"
@@ -1004,7 +1005,8 @@ class System {
     }
 
     async makeSource() {
-        return new EventSource(`${this.url}/api/account/authorize?auth=${await this.getAuthorizeCode()}`);
+        this.auth = await this.getAuthorizeCode();
+        return new EventSource(`${this.url}/api/account/authorize?auth=${this.auth}`);
     }
 
     async getAuthorizeCode() {
@@ -1058,7 +1060,7 @@ class System {
         else return await fetch(`${this.url}/${path}`, {
             credentials: 'omit',
             headers: {
-                'Set-Cookie': 'auth=ad'
+                'Set-Cookie': `auth=${this.auth}`
             },
             ...options
         });
