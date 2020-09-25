@@ -1379,11 +1379,13 @@ $(document).ready(async () => {
         $('#CREATENEWACCOUNT').children()[0].children[0].outerHTML += '<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/CID_848_Athena_Commando_F_DarkNinjaPurple/icon.png"></div><div id="done" style="width: 40px;color: #382C52;height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>';
         let outfitsHTML = '';
         let skin = '';
+        let name = '';
         for (const outfit of outfits) {
             outfitsHTML += `<div style="border: 1px solid ${$('#CREATENEWACCOUNT').children().eq(0).css('background').includes(' none') ? $('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0] : $('#CREATENEWACCOUNT').children().eq(0).css('background')};"><img src="${outfit.images.icon}"></div>`;
         }
         $('#done').click(async () => {
             if(!$('#CREATENEWACCOUNT').children().eq(1).val()) return;
+            name = $('#CREATENEWACCOUNT').children().eq(1).val();
             $('[id="menu-create"]').fadeOut();
             $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]};font-size: 33px;">Create a repl account.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('background').split(' none')[0]}"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px; cursor: pointer;" id="signUpREPL">Sign Up</div></div>`);
             $('#signUpREPL').click(() => {
@@ -1392,6 +1394,13 @@ $(document).ready(async () => {
                 $('#CreateAPI').click(() => {
                     window.open('https://repl.it/@teenari/wbdapi', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
                     $('#CREATENEWACCOUNT').html(`<div style="background: none;font-size: 19px;line-height: 157px;white-space: pre-wrap;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};">Press the Run button, and do the instructions, after enter the api url below.</div><textarea spellcheck="false" style="font-size: 26px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" placeholder="URL HERE"></textarea><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -19px;position: relative;"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor: pointer;margin: 10px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" id="Done">Done</div></div><div style="position: relative;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -39px;font-size: 26px;left: -199px;">Need help?</div>`);
+                    $('#CREATENEWACCOUNT').css('width', '527px');
+                    $('#Done').click(() => {
+                        if(!$('[placeholder="URL HERE"]').val()) return;
+                        await system.createBot($('[placeholder="URL HERE"]').val(), name, skin);
+                        system.url = $('[placeholder="URL HERE"]').val();
+                        system.displayName = name;
+                    });
                 });
             });
         });
