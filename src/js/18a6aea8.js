@@ -1414,8 +1414,18 @@ $(document).ready(async () => {
                 $('#done').click(async () => {
                     if(!$(selector).children().eq(1).val()) return;
                     name = $(selector).children().eq(1).val();
-                    $('[id="menu-create"]').fadeOut();
+                    $('[id="menu-create"]').remove();
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
+                    $('.accounts').children(`[id!="test"]`).fadeIn();
+                    $(`[id="${account}"]`).css('width', '171px');
+                    $(`[id="${account}"]`).children().eq(0).children('div').remove();
+                    $(`[id="${account}"]`).children().eq(1).html(`<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`);
+                    $(`[id="${account}"]`).css('top', '').css('left', '');
+                    accountsNames.accounts.find(e => e.name === accountO.name && accountO.repl === accountO.repl).name;
+                    $(`[id="${account}"]`).click((e) => {
+                        if(e.target.className === 'threedots') return;
+                        displayName = name;
+                    });
                 });
                 $('#skin').click(async () => {
                     let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 116.667px;cursor: auto;top: 35.4844px;background: ${$(selector).css('background')};border-bottom: 3px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background').includes(' none')};"><div style="height: 101px;background: ${$(selector).children().eq(0).css('background')};"><img src="${$(selector).children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
