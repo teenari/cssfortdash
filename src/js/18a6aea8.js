@@ -1359,10 +1359,92 @@ $(document).ready(async () => {
             const twofive = adjust(color, -25);
             const two = adjust(color, 20);
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${two}; border-bottom: 6px solid ${color};"><div style="background: ${color}; color: ${two}"><img src="${src}"><div class="threedots">⠇</div></div><div style="color: ${twofive};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${two}; border-bottom: 6px solid ${color};"><div style="background: ${color}; color: ${two}"><img src="${src}"><div class="threedots" id="${account}buttonsmIW">⠇</div></div><div style="color: ${twofive};">${account}</div></div>`;
             $(`[id="${account}"]`).click((e) => {
-                console.log(e);
+                if(e.target.className === 'threedots') return;
                 displayName = account;
+            });
+            $(`[id="${account}buttonsmIW"]`).click((e) => {
+                const selector = `[id="${account}buttonsmIW"]`;
+                $('.accounts').children(`[id!="${account}buttonsmIW"]`).fadeOut();
+                $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
+                $(selector).off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
+                $(selector).children()[0].children[0].outerHTML += `<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/${cid}/icon.png"></div><div id="done" style="width: 40px;color: ${$(`[id="${account}"]`).css('background').split(' none')[0]};height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>`;
+                let outfitsHTML = '';
+                let skin = '';
+                let name = '';
+                for (const outfit of outfits) {
+                    outfitsHTML += `<div style="border: 1px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background')};"><img src="${outfit.images.icon}"></div>`;
+                }
+                $('#done').click(async () => {
+                    if(!$(selector).children().eq(1).val()) return;
+                    name = $(selector).children().eq(1).val();
+                    $('[id="menu-create"]').fadeOut();
+                });
+                $('#skin').click(async () => {
+                    let html = `<div class="account" id="menu-create" type="skin" style="position: absolute;left: 116.667px;cursor: auto;top: 35.4844px;background: ${$(selector).css('background')};border-bottom: 3px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background').includes(' none')};"><div style="height: 101px;background: ${$(selector).children().eq(0).css('background')};"><img src="${$(selector).children()[0].children[0].src}"><div></div></div><div class="accounts-create-skins">${outfitsHTML}</div></div>`;
+                    if($('[id="menu-create"]')[0] && $('[id="menu-create"]')[0].style.left === '312.667px') {
+                        return $('[id="menu-create"]').animate({left: '116.667px'}, 100);
+                    }
+                    const functionimg = (img, color) => {
+                        const c = adjust(color, -15);
+                        $(selector).css('background', c).css('border-bottom', `6px solid ${color}`);
+                        $(selector).children().eq(0).children().eq(1).children().css('outline', `1px solid ${c}`);
+                        $('#text').css('color', c);
+                        $(selector).children().eq(0).children().eq(1).children().hover(
+                            () => $(selector).children().eq(0).children().eq(1).children().css({'boxShadow': `${c} 0px 0px 29px`}),
+                            () => $(selector).children().eq(0).children().eq(1).children().css({'boxShadow': `none`})
+                        );
+                        $(selector).children().eq(0).children().eq(1).children().css({'color': c});
+                        $(selector).children().eq(0).css('background', color);
+                        $(selector).children().eq(1).css('color', adjust(color, 30));
+                        $(selector).hover(
+                            () => $(selector).css({'boxShadow': `${$(selector).children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                            () => $(selector).css({'boxShadow': `none`})
+                        );
+                        $(selector).children().eq(0).children().eq(1).children().css('background', 'none');
+                        outfitsHTML = '';
+                        for (const outfit of outfits) {
+                            outfitsHTML += `<div style="border: 1px solid ${color};"><img src="${outfit.images.icon}"></div>`;
+                        }
+                    }
+                    if(!$('[id="menu-create"]')[0]) {
+                        $(selector).before(html);
+                        $(selector).children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$(selector).css('background').split(' none')[0]}`);
+                        $('[id="menu-create"]').hover(
+                            () => $('[id="menu-create"]').css({'boxShadow': `${$(selector).children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                            () => $('[id="menu-create"]').css({'boxShadow': `none`})
+                        );
+                        $('[type="skin"]').css('border-bottom', `3px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background')}`);
+                        $('[class="accounts-create-skins"]').children().click((e) => {
+                            const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
+                            skin = outfitID;
+                            $(`[src="${$(selector).children()[0].children[0].src}"]`).attr('src', e.target.src);
+                            $('[id="menu-create"]').animate({left: '116.667px'}, 100);
+                            $(`[src="${$(selector).children()[0].children[0].src}"]`).imgcolr(functionimg);
+                        });
+                        $('[id="menu-create"]').animate({left: '312.667px'}, 100);
+                    }
+                    else {
+                        $('[id="menu-create"]').animate({left: '116.667px'}, 100);
+                        await new Promise((resolve) => setTimeout(resolve, 100));
+                        $('[id="menu-create"]')[0].outerHTML = html;
+                        $('[id="menu-create"]').hover(
+                            () => $('[id="menu-create"]').css({'boxShadow': `${$(selector).children().eq(0).css('background').split(' none')[0]} 0px 0px 29px`}),
+                            () => $('[id="menu-create"]').css({'boxShadow': `none`})
+                        );
+                        $(selector).children().eq(0).children().eq(1).children().eq(0).css('outline', `1px solid ${$(selector).css('background').split(' none')[0]}`);
+                        $('[type="skin"]').css('border-bottom', `3px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background')}`);
+                        $('[class="accounts-create-skins"]').children().click((e) => {
+                            const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
+                            skin = outfitID;
+                            $(`[src="${$(selector).children()[0].children[0].src}"]`).attr('src', e.target.src);
+                            $('[id="menu-create"]').animate({left: '116.667px'}, 100);
+                            $(`[src="${$(selector).children()[0].children[0].src}"]`).imgcolr(functionimg);
+                        });
+                        $('[id="menu-create"]').animate({left: '312.667px'}, 50);
+                    }
+                });
             });
             $(`[id="${account}"]`).hover(
                 () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
