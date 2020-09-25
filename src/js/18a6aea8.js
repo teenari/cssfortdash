@@ -1392,8 +1392,14 @@ $(document).ready(async () => {
                 window.open('https://repl.it/signup', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
                 $('#CREATENEWACCOUNT').html(`<div style="background: none;top: 35%;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};font-size: 30px;">Create a webfort api repo.</div><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor:pointer;" id="CreateAPI">Create</div></div>`);
                 $('#CreateAPI').click(() => {
+                    const rgb2hex = (r,g,b) => ((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+                    const color = adjust(`#${rgb2hex(...Array.from($('#CREATENEWACCOUNT').children().eq(0).css('color').split('(')[1].split(')')[0].replace(/ /g, '').split(','), Number))}`, 30);
+                    $('head').append(`<style id="placeholder">::placeholder {
+                        color: ${color} !important;
+                        opacity: 1;
+                    }</style>`);
                     window.open('https://repl.it/@teenari/wbdapi', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
-                    $('#CREATENEWACCOUNT').html(`<div style="background: none;font-size: 19px;line-height: 157px;white-space: pre-wrap;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};font-size: 40px;">Paste API Url below.</div><textarea spellcheck="false" style="font-size: 38px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};text-decoration: underline;top: 0px;" placeholder="URL HERE"></textarea><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -19px;position: relative;"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor: pointer;margin: 10px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" id="Done">CREATE</div></div>`);
+                    $('#CREATENEWACCOUNT').html(`<div style="background: none;font-size: 19px;line-height: 157px;white-space: pre-wrap;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};font-size: 40px;">Paste API Url below.</div><textarea spellcheck="false" style="font-size: 38px;color: ${color};text-decoration: underline;top: 0px;" placeholder="URL HERE"></textarea><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -19px;position: relative;"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor: pointer;margin: 10px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" id="Done">CREATE</div></div>`);
                     $('#CREATENEWACCOUNT').css('width', '527px');
                     $('#Done').click(async () => {
                         if(!$('[placeholder="URL HERE"]').val()) return;
