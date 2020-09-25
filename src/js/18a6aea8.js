@@ -1399,7 +1399,7 @@ $(document).ready(async () => {
                         if(!$('[placeholder="URL HERE"]').val()) return;
                         await system.createBot($('[placeholder="URL HERE"]').val(), name, skin);
                         system.url = $('[placeholder="URL HERE"]').val();
-                        system.displayName = name;
+                        displayName = name;
                     });
                 });
             });
