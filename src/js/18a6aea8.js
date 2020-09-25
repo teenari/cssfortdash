@@ -1397,7 +1397,8 @@ $(document).ready(async () => {
                     $('#CREATENEWACCOUNT').css('width', '527px');
                     $('#Done').click(async () => {
                         if(!$('[placeholder="URL HERE"]').val()) return;
-                        await system.createBot($('[placeholder="URL HERE"]').val(), name, skin);
+                        const request = await system.createBot($('[placeholder="URL HERE"]').val(), name, skin || 'CID_848_Athena_Commando_F_DarkNinjaPurple');
+                        if(!request.ok) return;
                         system.url = $('[placeholder="URL HERE"]').val();
                         displayName = name;
                     });
