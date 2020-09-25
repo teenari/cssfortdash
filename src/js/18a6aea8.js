@@ -1416,13 +1416,11 @@ $(document).ready(async () => {
                     name = $(selector).children().eq(1).val();
                     $('[id="menu-create"]').remove();
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
-                    $('.accounts').children(`[id!="test"]`).fadeIn();
-                    $(`[id="${account}"]`).css('width', '171px');
+                    $('.accounts').children(`[id!="${account}"]`).fadeIn();
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
                     $(`[id="${account}"]`).children().eq(0).css('height', '100px');
-                    $(`[id="${account}"]`).css('cursor', 'pointer');
-                    $(`[id="${account}"]`).css('top', '').css('left', '');
+                    $(`[id="${account}"]`).css('cursor', 'pointer').css('height', '').css('top', '').css('left', '').css('width', '171px');
                     accountsNames.accounts.find(e => e.name === accountO.name && accountO.repl === accountO.repl).name;
                     $(`[id="${account}"]`).click((e) => {
                         if(e.target.className === 'threedots') return;
