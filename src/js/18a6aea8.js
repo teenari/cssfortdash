@@ -1360,7 +1360,8 @@ $(document).ready(async () => {
             const two = adjust(color, 20);
             sadd.remove();
             div.outerHTML = `<div id="${account}" class="account" style="background: ${two}; border-bottom: 6px solid ${color};"><div style="background: ${color}; color: ${two}"><img src="${src}"><div class="threedots">⠇</div></div><div style="color: ${twofive};">${account}</div></div>`;
-            $(`[id="${account}"]`).click(() => {
+            $(`[id="${account}"]`).click((e) => {
+                console.log(e);
                 displayName = account;
             });
             $(`[id="${account}"]`).hover(
