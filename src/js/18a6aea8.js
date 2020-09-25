@@ -1419,7 +1419,8 @@ $(document).ready(async () => {
                     $('.accounts').children(`[id!="test"]`).fadeIn();
                     $(`[id="${account}"]`).css('width', '171px');
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
-                    $(`[id="${account}"]`).children().eq(1).html(`<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`);
+                    $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
+                    $(`[id="${account}"]`).children().eq(0).css('height', '100px');
                     $(`[id="${account}"]`).css('top', '').css('left', '');
                     accountsNames.accounts.find(e => e.name === accountO.name && accountO.repl === accountO.repl).name;
                     $(`[id="${account}"]`).click((e) => {
