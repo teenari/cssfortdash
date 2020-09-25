@@ -1365,8 +1365,8 @@ $(document).ready(async () => {
                 displayName = account;
             });
             $(`[id="${account}buttonsmIW"]`).click((e) => {
-                const selector = `[id="${account}buttonsmIW"]`;
-                $('.accounts').children(`[id!="${account}buttonsmIW"]`).fadeOut();
+                const selector = `[id="${account}"]`;
+                $('.accounts').children(`[id!="${account}"]`).fadeOut();
                 $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
                 $(selector).off('click').children()[1].outerHTML = '<textarea spellcheck="false">CREATE</textarea>';
                 $(selector).children()[0].children[0].outerHTML += `<div><div id="skin"><img src="https://fortnite-api.com/images/cosmetics/br/${cid}/icon.png"></div><div id="done" style="width: 40px;color: ${$(`[id="${account}"]`).css('background').split(' none')[0]};height: 40px;top: -113px;left: 261px;line-height: 50px;font-size: 40px;">✔</div></div>`;
