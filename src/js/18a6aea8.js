@@ -1395,7 +1395,7 @@ $(document).ready(async () => {
                     window.open('https://repl.it/@teenari/wbdapi', '_blank', 'location=yes,height=500,width=500,scrollbars=yes,status=yes');
                     $('#CREATENEWACCOUNT').html(`<div style="background: none;font-size: 19px;line-height: 157px;white-space: pre-wrap;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};">Press the Run button, and do the instructions, after enter the api url below.</div><textarea spellcheck="false" style="font-size: 26px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" placeholder="URL HERE"></textarea><div style="display: flex;align-items: center;justify-content: center;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -19px;position: relative;"><div style="font-size: 24px;border: 1px solid;border-radius: 10px;display: inline-block;padding: 10px;cursor: pointer;margin: 10px;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};" id="Done">Done</div></div><div style="position: relative;color: ${$('#CREATENEWACCOUNT').children().eq(0).css('color')};top: -39px;font-size: 26px;left: -199px;">Need help?</div>`);
                     $('#CREATENEWACCOUNT').css('width', '527px');
-                    $('#Done').click(() => {
+                    $('#Done').click(async () => {
                         if(!$('[placeholder="URL HERE"]').val()) return;
                         await system.createBot($('[placeholder="URL HERE"]').val(), name, skin);
                         system.url = $('[placeholder="URL HERE"]').val();
