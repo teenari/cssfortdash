@@ -390,7 +390,14 @@ textarea {
     font-size: 47px;
     position: relative;
     top: -194px;
-    left: 78px;
+    left: 146px;
+    transition: 0.5s;
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.threedots:hover {
+    filter: brightness(222%);
 }
 
 .cosmetic {
