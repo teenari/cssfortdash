@@ -386,6 +386,13 @@ textarea {
     opacity: 1;
 }
 
+.threedots {
+    font-size: 47px;
+    position: relative;
+    top: -194px;
+    left: 78px;
+}
+
 .cosmetic {
     font-size: 35px;
     font-family: t;

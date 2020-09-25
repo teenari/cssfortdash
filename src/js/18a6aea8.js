@@ -1357,8 +1357,9 @@ $(document).ready(async () => {
         document.body.appendChild(sadd);
         $(`[src="${src}"]`).imgcolr(function (img, color) {
             const twofive = adjust(color, -25);
+            const two = adjust(color, 20);
             sadd.remove();
-            div.outerHTML = `<div id="${account}" class="account" style="background: ${adjust(color, 20)}; border-bottom: 6px solid ${color};"><div style="background: ${color};"><img src="${src}"></div><div style="color: ${twofive};">${account}</div></div>`;
+            div.outerHTML = `<div id="${account}" class="account" style="background: ${two}; border-bottom: 6px solid ${color};"><div style="background: ${color}; color: ${two}"><img src="${src}"><div class="threedots">⠇</div></div><div style="color: ${twofive};">${account}</div></div>`;
             $(`[id="${account}"]`).click(() => {
                 displayName = account;
             });
