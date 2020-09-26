@@ -1147,8 +1147,7 @@ class System {
             method: 'POST',
             body: JSON.stringify({
               operation: 'delete',
-              repl,
-              name
+              repl
             }),
             headers: {
                 'Content-type': 'application/json'
