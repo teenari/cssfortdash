@@ -1142,6 +1142,20 @@ class System {
         });
     }
 
+    async deleteBot(repl, name) {
+        return await this.sendRequest('api/repl/account', {
+            method: 'POST',
+            body: JSON.stringify({
+              operation: 'delete',
+              repl,
+              name
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+    }
+
     async editBot(repl, name, cid, oldName) {
         return await this.sendRequest('api/repl/account', {
             method: 'POST',
