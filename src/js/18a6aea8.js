@@ -1394,6 +1394,7 @@ $(document).ready(async () => {
                 displayName = account;
             });
             $(`[id="${account}buttonsmIW"]`).click((e) => {
+                let handler = $._data(document.getElementById(`${account}buttonsmIW`), 'events').click[0].handler;
                 const selector = `[id="${account}"]`;
                 $('.accounts').children(`[id!="${account}"]`).fadeOut();
                 $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
@@ -1421,6 +1422,7 @@ $(document).ready(async () => {
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
                     $(`[id="${account}"]`).children().eq(0).css('height', '100px');
                     $(`[id="${account}"]`).children().eq(0).children().eq(0).after(`<div class="threedots" id="${account}buttonsmIW">⠇</div>`);
+                    $(`[id="${account}buttonsmIW"]`).click(handler);
                     $(`[id="${account}"]`).css('cursor', 'pointer').css('height', '').css('top', '').css('left', '').css('width', '171px');
                     accountsNames.accounts.find(e => e.name === accountO.name && accountO.repl === accountO.repl).name;
                     $(`[id="${account}"]`).click((e) => {
