@@ -1493,7 +1493,7 @@ $(document).ready(async () => {
                         $('[class="accounts-create-skins"]').children().click((e) => {
                             const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
                             skin = outfitID;
-                            console.log(e.target.src);
+                            console.log(e.target.src.split('https://fortnite-api.com/images/cosmetics/br/'));
                             $(`[src="${$(selector).children()[0].children[0].src}"]`).attr('src', e.target.src);
                             $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                             $(`[src="${$(selector).children()[0].children[0].src}"]`).imgcolr(functionimg);
