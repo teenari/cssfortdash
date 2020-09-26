@@ -1395,6 +1395,7 @@ $(document).ready(async () => {
             });
             $(`[id="${account}buttonsmIW"]`).click((e) => {
                 let handler = $._data(document.getElementById(`${account}buttonsmIW`), 'events').click[0].handler;
+                console.log(handler);
                 const selector = `[id="${account}"]`;
                 $('.accounts').children(`[id!="${account}"]`).fadeOut();
                 $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
