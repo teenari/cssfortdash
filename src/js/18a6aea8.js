@@ -1393,7 +1393,10 @@ $(document).ready(async () => {
                 if(e.target.className === 'threedots') return;
                 displayName = account;
             });
-            $(`[id="${account}buttonsmIW"]`).click(settings);
+            $(`[id="${account}buttonsmIW"]`).click(async (e) => {
+                console.log('s');
+                await settings(e);
+            });
             $(`[id="${account}"]`).hover(
                 () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
                 () => $(`[id="${account}"]`).css({'boxShadow': `none`})
