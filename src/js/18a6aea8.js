@@ -1393,11 +1393,11 @@ $(document).ready(async () => {
                 if(e.target.className === 'threedots') return;
                 displayName = account;
             });
-            console.log($(`[id="${account}buttonsmIW"]`));
-            $(`[id="${account}buttonsmIW"]`).click(async (e) => {
-                console.log('s');
-                await settings(e);
-            });
+            // console.log($(`[id="${account}buttonsmIW"]`));
+            // $(`[id="${account}buttonsmIW"]`).click(async (e) => {
+            //     console.log('s');
+            //     await settings(e);
+            // });
             $(`[id="${account}"]`).hover(
                 () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
                 () => $(`[id="${account}"]`).css({'boxShadow': `none`})
