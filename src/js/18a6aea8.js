@@ -1395,7 +1395,6 @@ $(document).ready(async () => {
             });
             $(`[id="${account}buttonsmIW"]`).click((e) => {
                 let handler = $._data(document.getElementById(`${account}buttonsmIW`), 'events').click[0].handler;
-                console.log(handler);
                 const selector = `[id="${account}"]`;
                 $('.accounts').children(`[id!="${account}"]`).fadeOut();
                 $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
@@ -1417,10 +1416,7 @@ $(document).ready(async () => {
                     if(!$(selector).children().eq(1).val()) return;
                     name = $(selector).children().eq(1).val();
                     $('[id="menu-create"]').remove();
-                    console.log(skin);
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
-                    // accountO.cid = skin;
-                    // cid = skin;
                     $('.accounts').children(`[id!="${account}"]`).fadeIn();
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
