@@ -1423,7 +1423,7 @@ $(document).ready(async () => {
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
                     $('.accounts').children(`[id!="${account}"]`).fadeIn();
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
-                    $(`[id="${account}"]`.children().eq(0).children().eq(0).after('<div class="threedots" id="${account}buttonsmIW">⠇</div>');
+                    $(`[id="${account}"]`).children().eq(0).children().eq(0).after(`<div class="threedots" id="${account}buttonsmIW">⠇</div>`);
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
                     $(`[id="${account}"]`).children().eq(0).css('height', '100px');
                     $(`[id="${account}"]`).css('cursor', 'pointer').css('height', '').css('top', '').css('left', '').css('width', '171px');
