@@ -1417,7 +1417,10 @@ $(document).ready(async () => {
                     if(!$(selector).children().eq(1).val()) return;
                     name = $(selector).children().eq(1).val();
                     $('[id="menu-create"]').remove();
+                    console.log(skin);
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
+                    // accountO.cid = skin;
+                    // cid = skin;
                     $('.accounts').children(`[id!="${account}"]`).fadeIn();
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
@@ -1469,6 +1472,7 @@ $(document).ready(async () => {
                         $('[type="skin"]').css('border-bottom', `3px solid ${$(selector).children().eq(0).css('background').includes(' none') ? $(selector).children().eq(0).css('background').split(' none')[0] : $(selector).children().eq(0).css('background')}`);
                         $('[class="accounts-create-skins"]').children().click((e) => {
                             const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
+                            console.log(skin);
                             skin = outfitID;
                             $(`[src="${$(selector).children()[0].children[0].src}"]`).attr('src', e.target.src);
                             $('[id="menu-create"]').animate({left: '116.667px'}, 100);
@@ -1489,6 +1493,7 @@ $(document).ready(async () => {
                         $('[class="accounts-create-skins"]').children().click((e) => {
                             const outfitID = e.target.src.split('https://fortnite-api.com/images/cosmetics/br/')[1].split('/')[0];
                             skin = outfitID;
+                            console.log(skin);
                             $(`[src="${$(selector).children()[0].children[0].src}"]`).attr('src', e.target.src);
                             $('[id="menu-create"]').animate({left: '116.667px'}, 100);
                             $(`[src="${$(selector).children()[0].children[0].src}"]`).imgcolr(functionimg);
