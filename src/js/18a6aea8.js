@@ -1393,6 +1393,7 @@ $(document).ready(async () => {
                 if(e.target.className === 'threedots') return;
                 displayName = account;
             });
+            console.log($(`[id="${account}buttonsmIW"]`));
             $(`[id="${account}buttonsmIW"]`).click(async (e) => {
                 console.log('s');
                 await settings(e);
