@@ -1393,7 +1393,12 @@ $(document).ready(async () => {
                 if(e.target.className === 'threedots') return;
                 displayName = account;
             });
-            $(`[id="${account}buttonsmIW"]`).click((e) => {
+            $(`[id="${account}buttonsmIW"]`).click(settings);
+            $(`[id="${account}"]`).hover(
+                () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
+                () => $(`[id="${account}"]`).css({'boxShadow': `none`})
+            );
+            const settings = async (e) => {
                 const selector = `[id="${account}"]`;
                 $('.accounts').children(`[id!="${account}"]`).fadeOut();
                 $(selector).css('cursor', 'auto').css('top', '').css('left', '').css('position', 'relative').css('width', '171px').css('height', '204px').animate({top: '4vh', left: '-1vh', width: '313px', height: '218px'}).children()[0].style.height = '154px';
@@ -1418,12 +1423,14 @@ $(document).ready(async () => {
                     await system.editBot(accountO.repl, name, skin || accountO.cid, accountO.name);
                     $('.accounts').children(`[id!="${account}"]`).fadeIn();
                     $(`[id="${account}"]`).children().eq(0).children('div').remove();
+                    $(`[id="${account}"]`.children().eq(0).children().eq(0).after('<div class="threedots" id="${account}buttonsmIW">⠇</div>');
                     $(`[id="${account}"]`).children().eq(1)[0].outerHTML = `<div style="color: ${$(`[id="${account}"]`).children().eq(1).css('color')};">${name}</div>`;
                     $(`[id="${account}"]`).children().eq(0).css('height', '100px');
                     $(`[id="${account}"]`).css('cursor', 'pointer').css('height', '').css('top', '').css('left', '').css('width', '171px');
                     accountsNames.accounts.find(e => e.name === accountO.name && accountO.repl === accountO.repl).name;
                     $(`[id="${account}"]`).click((e) => {
                         if(e.target.className === 'threedots') return;
+                        system.url = accountO.repl;
                         displayName = name;
                     });
                 });
@@ -1491,11 +1498,7 @@ $(document).ready(async () => {
                         $('[id="menu-create"]').animate({left: '312.667px'}, 50);
                     }
                 });
-            });
-            $(`[id="${account}"]`).hover(
-                () => $(`[id="${account}"]`).css({'boxShadow': `${twofive} 0px 0px 29px`}),
-                () => $(`[id="${account}"]`).css({'boxShadow': `none`})
-            );
+            }
         });
         used.push(cid);
     };
