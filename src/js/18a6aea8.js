@@ -840,13 +840,17 @@ class System {
     async hidePlayer(id) {
         $(`#${id}.icon`).animate({opacity: 0.5}, 300);
         this.hiddenMembers.push({id});
-        return await this.sendRequest(`api/account/party/member/hide?id=${id}`);
+        return await this.requestOperation('api/account/party/member', 'hide', {
+            id
+        });
     }
     
     async showPlayer(id) {
         $(`#${id}.icon`).animate({opacity: 1}, 300);
         this.hiddenMembers = this.hiddenMembers.filter(m => m.id !== id);
-        return await this.sendRequest(`api/account/party/member/show?id=${id}`);
+        return await this.requestOperation('api/account/party/member', 'show', {
+            id
+        });
     }
 
     async createBot(repl, name, cid) {
