@@ -458,7 +458,7 @@ class Menu {
                     });
                 }
                 await menSu.hideMenu(menu);
-                await menSu.system.changeVariants(variants, cosmeticType.toLowerCase());
+                await menSu.system.changeVariants(cosmeticType.toLowerCase(), variants);
             });
         });
         $('#selectItem').click(async () => {
