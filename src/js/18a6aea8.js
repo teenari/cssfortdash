@@ -991,12 +991,12 @@ class System {
         });
     }
 
-    async changeCosmeticItem(cosmeticType, id, setItem) {
-        await this.sendRequest(`api/account/party/me/meta?array=["${id}"]&function=set${cosmeticType.toLowerCase().charAt(0).toUpperCase() + cosmeticType.toLowerCase().slice(1)}`, {
-            method: "PUT"
-        });
+    async changeCosmeticItem(type, id, setItem) {
         if(!setItem) this.items[cosmeticType.toLowerCase()] = this.cosmetics.sorted[cosmeticType.toLowerCase()].find(cosmetic => cosmetic.id === id);
-        return this;
+        return await this.requestOperation('api/account/meta', 'cosmetic', {
+            type,
+            arguments: [id]
+        }, null, 'PUT');
     }
 
     async changeVariants(array, cosmeticType) {
@@ -1044,6 +1044,20 @@ class System {
 
     async getTimeLeft() {
         return await (await this.sendRequest('api/account/time')).json();
+    }
+
+    async requestOperation(path, operation, body, options={}, method="POST") {
+        return await this.sendRequest(path, {
+            method,
+            body: JSON.stringify({
+                operation,
+                ...body
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            },
+            ...options
+        });
     }
 
     async sendRequest(path, options, isURL) {
@@ -1128,48 +1142,27 @@ class System {
     }
 
     async createBot(repl, name, cid) {
-        return await this.sendRequest('api/repl/account', {
-            method: 'POST',
-            body: JSON.stringify({
-              operation: 'create',
-              repl,
-              name,
-              cid
-            }),
-            headers: {
-                'Content-type': 'application/json'
-            }
+        return await this.requestOperation('api/repl/account', 'create', {
+            repl,
+            name,
+            cid
         });
     }
 
-    async deleteBot(repl, name) {
-        return await this.sendRequest('api/repl/account', {
-            method: 'POST',
-            body: JSON.stringify({
-              operation: 'delete',
-              repl
-            }),
-            headers: {
-                'Content-type': 'application/json'
-            }
+    async deleteBot(repl) {
+        return await this.requestOperation('api/repl/account', 'delete', {
+            repl
         });
     }
 
     async editBot(repl, name, cid, oldName) {
-        return await this.sendRequest('api/repl/account', {
-            method: 'POST',
-            body: JSON.stringify({
-              operation: 'edit',
-              repl,
-              name,
-              old: {
+        return await this.requestOperation('api/repl/account', 'edit', {
+            repl,
+            name,
+            old: {
                 name: oldName
-              },
-              cid
-            }),
-            headers: {
-                'Content-type': 'application/json'
-            }
+            },
+            cid
         });
     }
 
