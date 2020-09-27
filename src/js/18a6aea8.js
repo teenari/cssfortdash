@@ -1069,11 +1069,12 @@ class System {
             ...options
         });
         else return await fetch(isURL ? path : `${this.url}/${path}`, {
+            ...options,
             credentials: 'omit',
             headers: {
-                'Set-Cookie': `auth=${this.user.id}`
+                'Set-Cookie': `auth=${this.user.id}`,
+                ...options.headers
             },
-            ...options
         });
     }
 
