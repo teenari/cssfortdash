@@ -1073,7 +1073,7 @@ class System {
             credentials: 'omit',
             headers: {
                 'Set-Cookie': `auth=${this.user.id}`,
-                ...options.headers
+                ...options.headers ? options.headers : {}
             },
         });
     }
