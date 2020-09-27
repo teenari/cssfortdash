@@ -992,7 +992,7 @@ class System {
     }
 
     async changeCosmeticItem(type, id, setItem) {
-        if(!setItem) this.items[cosmeticType.toLowerCase()] = this.cosmetics.sorted[cosmeticType.toLowerCase()].find(cosmetic => cosmetic.id === id);
+        if(!setItem) this.items[type.toLowerCase()] = this.cosmetics.sorted[type.toLowerCase()].find(cosmetic => cosmetic.id === id);
         return await this.requestOperation('api/account/meta', 'cosmetic', {
             type,
             arguments: [id]
