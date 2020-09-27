@@ -1001,9 +1001,6 @@ class System {
 
     async changeVariants(type, variants) {
         this.items.variants[type] = variants;
-        await this.sendRequest(`api/account/party/me/meta?array=["${system.items[cosmeticType].id}", ${JSON.stringify(array)}]&function=set${cosmeticType.toLowerCase().charAt(0).toUpperCase() + cosmeticType.toLowerCase().slice(1)}`, {
-            method: "PUT"
-        });
         return await this.requestOperation('api/account/meta', 'cosmetic', {
             type,
             arguments: [this.items[type].id, variants]
