@@ -720,7 +720,7 @@ class System {
 
     async setProperties() {
         this.account = await this.getAccount();
-        this.party = await this.getParty();
+        // this.party = await this.getParty();
         this.friends = await this.getFriends();
         this.hiddenMembers = [];
         this.messages = {
